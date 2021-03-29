@@ -190,15 +190,15 @@ describe('SignUp Controller', () => {
       body: {
         name: 'any_name',
         email: 'any_email@email',
-        password: 'any_pass',
-        passwordConfirmation: 'any_pass'
+        password: 'valid_pass',
+        passwordConfirmation: 'valid_pass'
       }
     }
     await sut.handle(httpRequest)
     expect(addSpy).toHaveBeenCalledWith({
       name: 'any_name',
       email: 'any_email@email',
-      password: 'any_pass'
+      password: 'valid_pass'
     })
   })
 
