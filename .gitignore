@@ -3,3 +3,5 @@ dist
 coverage
 globalConfig.json
 ./src/main/config/env.ts
+data
+.eslint.ignore
