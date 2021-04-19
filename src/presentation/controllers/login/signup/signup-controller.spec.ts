@@ -1,9 +1,9 @@
 /* eslint-disable promise/param-names */
 import { SignUpController } from './signup-controller'
-import { MissingParamError, ServerError, EmailInUSeError } from '../../errors'
+import { MissingParamError, ServerError, EmailInUSeError } from '../../../errors'
 import { AccountModel, AddAccount, AddAccountModel, Validation, Authentication, AuthenticationModel } from './signup-controller-protocols'
-import { HttpRequest } from '../../protocols'
-import { ok, serverError, badRequest, forbiden } from '../../helpers/http/http-helper'
+import { HttpRequest } from '../../../protocols'
+import { ok, serverError, badRequest, forbiden } from '../../../helpers/http/http-helper'
 
 const makeAddAccount = (): AddAccount => {
   class AddAccountStub implements AddAccount {
