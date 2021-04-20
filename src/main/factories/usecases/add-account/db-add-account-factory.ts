@@ -1,8 +1,11 @@
-import { AddSurvey } from '../../../../domain/usecases/add-survey'
-import { SurveyMongoRepository } from '../../../../infra/db/mongodb/survey/survey-mongo-repository'
-import { DbAddSurvey } from '../../../../data/userCases/add-survey/db-add-survey'
+import { AccountMongoRepository } from '../../../../infra/db/mongodb/account/account-mongo-repository'
+import { BcryptAdapter } from '../../../../infra/criptografy/bcrypt-adapter/bcrypt-adapter'
+import { AddAccount } from '../../../../domain/usecases/add-account'
+import { DbAddAccount } from '../../../../data/userCases/add-account/db-add-account'
 
-export const makeDbAddSurvey = (): AddSurvey => {
-  const surveyMongoRepository = new SurveyMongoRepository()
-  return new DbAddSurvey(surveyMongoRepository)
+export const makeDbAddAccount = (): AddAccount => {
+  const salt = 12
+  const bcryptAdapter = new BcryptAdapter(salt)
+  const accountMongoRepository = new AccountMongoRepository()
+  return new DbAddAccount(bcryptAdapter, accountMongoRepository, accountMongoRepository)
 }
